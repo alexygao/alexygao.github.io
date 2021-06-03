@@ -8,11 +8,21 @@
     <script>
         function startAnimation() {
             document.getElementsByTagName("body")[0].classList.remove("preload");
+            document.addEventListener('click', musicPlay);
+
+            function musicPlay() {
+                document.getElementById("song").play();
+                document.removeEventListener('click', musicPlay);
+            }
         }
     </script>
 </head>
 
 <body class="preload" onload="startAnimation()">
+    <audio id="song" controls autoplay hidden>
+         <source src="song.mp3" type="audio/mpeg">
+                    unsupported !! 
+    </audio>
     <div class="card">
         <div class="back"></div>
         <div class="front">
